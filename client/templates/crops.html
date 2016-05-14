@@ -1,0 +1,40 @@
+
+<template name="legend">
+	<div class="legend">
+		{{#each cropTypes}}
+			<label class={{this}}>{{this}}</label>
+		{{/each}}
+	</div>
+</template>
+
+<template name="crops">
+	{{> legend cropTypes=cropTypes}}
+	<table>
+		<thead>
+			<th></th>
+			{{#each startArray months currentMonth}}
+				<th class={{currentClass}}>{{name}}</th>
+			{{/each}}
+		</thead>
+		<tbody>
+			{{#each crops}}
+				<tr class="crop-{{type}}">
+					<th>
+						<a class="btn btn-link toggle-favourite is-{{favourite}}">
+							<i class="glyphicon glyphicon-{{#if favourite}}heart{{else}}heart-empty{{/if}}">
+							</i>
+							{{name}}
+						</a>
+					</th>
+					{{#each startArray months currentMonth}}
+						<td class="crop-cell count-{{cropClasses.length}} {{#each cropClasses}} {{this}}{{/each}} {{currentClass}}">
+							{{#each cropTypes}}
+								<span class="crop-type {{this}}"></span>
+							{{/each}}
+						</td>
+					{{/each}}
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</template>

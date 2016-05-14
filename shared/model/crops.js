@@ -1,0 +1,1 @@
+Crops = new Mongo.Collection('crops');
