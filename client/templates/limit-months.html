@@ -1,0 +1,10 @@
+
+<template name="limitMonths">
+	<a class="btn btn-default decrease-months" disabled={{isFalsy canDecrease}}>
+		<i class="glyphicon glyphicon-chevron-left"></i>
+	</a>
+	<span>{{months}} months</span>
+	<a class="btn btn-default increase-months" disabled={{isFalsy canIncrease}}>
+		<i class="glyphicon glyphicon-chevron-right"></i>
+	</a>
+</template>

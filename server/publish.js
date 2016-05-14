@@ -1,6 +1,10 @@
 
+//TODO: Move favourites onto user account, rather than on record
+
 Meteor.publish('crops', function(search) {
-	//TODO: Implement search
-	
-	return Crops.find();
+	return Crops.find((search && { 
+		name: { 
+			$regex: '.*'+search+'.*', 
+			$options: 'im' 
+		}}) || {}, { sort: { favourite: -1 }, limit: 20 });
 });

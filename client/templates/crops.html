@@ -1,18 +1,21 @@
 
 <template name="legend">
 	<div class="legend">
+		<span>{{crops.count}} crops</span>
+		{{> cropSearch}}
 		{{#each cropTypes}}
 			<label class={{this}}>{{this}}</label>
 		{{/each}}
+		{{> limitMonths}}
 	</div>
 </template>
 
 <template name="crops">
-	{{> legend cropTypes=cropTypes}}
+	{{> legend cropTypes=cropTypes crops=crops}}
 	<table>
 		<thead>
 			<th></th>
-			{{#each startArray months currentMonth}}
+			{{#each startArray months currentMonth numberOfMonths}}
 				<th class={{currentClass}}>{{name}}</th>
 			{{/each}}
 		</thead>
@@ -26,7 +29,7 @@
 							{{name}}
 						</a>
 					</th>
-					{{#each startArray months currentMonth}}
+					{{#each startArray months currentMonth numberOfMonths}}
 						<td class="crop-cell count-{{cropClasses.length}} {{#each cropClasses}} {{this}}{{/each}} {{currentClass}}">
 							{{#each cropTypes}}
 								<span class="crop-type {{this}}"></span>

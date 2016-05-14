@@ -3,7 +3,8 @@ Template.crops.onCreated(function () {
   var instance = this;
 
   instance.autorun(function () {
-		instance.subscribe('crops');
+    var search = Session.get('search');
+		instance.subscribe('crops', (search || ''));
 
     if (instance.subscriptionsReady()) {
 			// Session.set('page-title', instance.crops().count()+' crops');
@@ -52,6 +53,10 @@ Template.crops.helpers({
   	months[currentMonth].current = true;
   	return months;
   },
+	numberOfMonths: function() {
+		var months = Session.get('months') || 12;
+		return months;
+	},
   currentMonth: function() {
   	return (new Date()).getMonth();
   },
