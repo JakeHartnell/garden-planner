@@ -12,7 +12,7 @@
 
 <template name="crops">
 	{{> legend cropTypes=cropTypes crops=crops}}
-	<table>
+	<table class="months-{{numberOfMonths}}">
 		<thead>
 			<th></th>
 			{{#each startArray months currentMonth numberOfMonths}}
