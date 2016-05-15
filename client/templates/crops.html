@@ -32,7 +32,7 @@
 					{{#each startArray months currentMonth numberOfMonths}}
 						<td class="crop-cell count-{{cropClasses.length}} {{#each cropClasses}} {{this}}{{/each}} {{currentClass}}">
 							{{#each cropTypes}}
-								<span class="crop-type {{this}}" title={{title}}></span>
+								<span class="crop-type {{this}}" data-tooltip={{title}} data-tooltip-direction="w"></span>
 							{{/each}}
 						</td>
 					{{/each}}
