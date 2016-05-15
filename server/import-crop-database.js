@@ -1,6 +1,5 @@
-import { Meteor } from 'meteor/meteor';
 
-Meteor.startup(() => {
+Meteor.startup(function() {
 
 	//Import test data
 	if(!Crops.find().count()) {

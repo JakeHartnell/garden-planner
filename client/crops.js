@@ -35,18 +35,18 @@ Template.crops.helpers({
   },
   months: function() {
   	var months = [
-  		{ num: 1, name: 'Jan' },
-  		{ num: 2, name: 'Feb' },
-  		{ num: 3, name: 'Mar' },
-  		{ num: 4, name: 'Apr' },
-  		{ num: 5, name: 'May' },
-  		{ num: 6, name: 'Jun' },
-  		{ num: 7, name: 'Jul' },
-  		{ num: 8, name: 'Aug' },
-  		{ num: 9, name: 'Sep' },
-  		{ num: 10, name: 'Oct' },
-  		{ num: 11, name: 'Nov' },
-  		{ num: 12, name: 'Dec' },
+  		{ num: 1, name: 'Jan', full: 'January' },
+  		{ num: 2, name: 'Feb', full: 'February' },
+  		{ num: 3, name: 'Mar', full: 'March' },
+  		{ num: 4, name: 'Apr', full: 'April' },
+  		{ num: 5, name: 'May', full: 'May' },
+  		{ num: 6, name: 'Jun', full: 'June' },
+  		{ num: 7, name: 'Jul', full: 'July' },
+  		{ num: 8, name: 'Aug', full: 'August' },
+  		{ num: 9, name: 'Sep', full: 'September' },
+  		{ num: 10, name: 'Oct', full: 'October' },
+  		{ num: 11, name: 'Nov', full: 'November' },
+  		{ num: 12, name: 'Dec', full: 'December' },
   	];
 
 		var currentMonth = (new Date()).getMonth();
@@ -62,6 +62,14 @@ Template.crops.helpers({
   },
   currentClass: function() {
   	return this.current ? 'current' : '';
+  },
+  title: function() {
+    var type = this;
+    var month = Template.parentData(1);
+    var plant = Template.parentData(2);
+    // console.log(type, month, plant);
+    var action = (type == 'harvest' ? 'Harvest' : 'Plant ' + type);
+    return action + ' in ' + month.full;
   },
   cropClasses: function() {
   	var month = this;
